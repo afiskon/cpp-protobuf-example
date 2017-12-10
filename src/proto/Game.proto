@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package me.eax.examples.game;
+
+enum Spell {
+    FIREBALL = 0;
+    THUNDERBOLT = 1;
+}
+
+enum Weapon {
+    SWORD = 0;
+    BOW = 1;
+}
+
+message WariorInfo {
+    Weapon weapon = 1;
+    int64 arrows_number = 2;
+}
+
+message MageInfo {
+    repeated Spell spellbook = 1;
+    int64 mana = 2;
+}
+
+message Hero {
+    string name = 1;
+    int64 hp = 2;
+    int64 xp = 3;
+    oneof class_specific_info {
+        WariorInfo warior_info = 5;
+        MageInfo mage_info = 6;
+    }
+}
