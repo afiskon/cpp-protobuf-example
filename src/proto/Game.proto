@@ -27,7 +27,7 @@ message Hero {
     int64 hp = 2;
     int64 xp = 3;
     oneof class_specific_info {
-        WariorInfo warior_info = 5;
-        MageInfo mage_info = 6;
+        WariorInfo warior_info = 4;
+        MageInfo mage_info = 5;
     }
 }
