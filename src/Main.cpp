@@ -90,3 +90,4 @@ int main() {
     printHero(warrior2);
     printHero(mage2);
 }
+
