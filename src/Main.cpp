@@ -41,14 +41,14 @@ void printHero(const Hero& hero) {
         }
         cout << endl;
         cout << "Mana: " << hero.mage_info().mana() << endl;
-    } else if(hero.has_warior_info()) {
-        cout << "Class: warior" << endl;
+    } else if(hero.has_warrior_info()) {
+        cout << "Class: warrior" << endl;
         cout << "Weapon: " << (
-                hero.warior_info().weapon() == Weapon::SWORD ? "sword" :
-                hero.warior_info().weapon() == Weapon::BOW ? "bow" :
+                hero.warrior_info().weapon() == Weapon::SWORD ? "sword" :
+                hero.warrior_info().weapon() == Weapon::BOW ? "bow" :
                 "(unknown weapon)"
             ) << endl;
-        cout << "Arrows: " << hero.warior_info().arrows_number() << endl;
+        cout << "Arrows: " << hero.warrior_info().arrows_number() << endl;
     } else {
         cout << "Class: (unknown class)" << endl;
     }
@@ -61,12 +61,12 @@ int main() {
     // compatible with the version of the headers we compiled against.
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    Hero warior;
-    warior.set_name("eax");
-    warior.set_hp(50);
-    warior.set_xp(256);
-    warior.mutable_warior_info()->set_weapon(Weapon::SWORD);
-    warior.mutable_warior_info()->set_arrows_number(15);
+    Hero warrior;
+    warrior.set_name("eax");
+    warrior.set_hp(50);
+    warrior.set_xp(256);
+    warrior.mutable_warrior_info()->set_weapon(Weapon::SWORD);
+    warrior.mutable_warrior_info()->set_arrows_number(15);
 
     Hero mage;
     mage.set_name("afiskon");
@@ -77,16 +77,16 @@ int main() {
     mage.mutable_mage_info()->set_mana(100);
 
     cout << "Saving heroes..." << endl;
-    saveHero("eax.dat", warior);
+    saveHero("eax.dat", warrior);
     saveHero("afiskon.dat", mage);
 
     cout << "Loading heroes..." << endl;
-    Hero warior2;
+    Hero warrior2;
     Hero mage2;
-    loadHero("eax.dat", warior2);
+    loadHero("eax.dat", warrior2);
     loadHero("afiskon.dat", mage2);
 
     cout << endl;
-    printHero(warior2);
+    printHero(warrior2);
     printHero(mage2);
 }

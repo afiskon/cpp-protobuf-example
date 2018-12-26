@@ -12,7 +12,7 @@ enum Weapon {
     BOW = 1;
 }
 
-message WariorInfo {
+message WarriorInfo {
     Weapon weapon = 1;
     int64 arrows_number = 2;
 }
@@ -27,7 +27,7 @@ message Hero {
     int64 hp = 2;
     int64 xp = 3;
     oneof class_specific_info {
-        WariorInfo warior_info = 4;
+        WarriorInfo warrior_info = 4;
         MageInfo mage_info = 5;
     }
 }
